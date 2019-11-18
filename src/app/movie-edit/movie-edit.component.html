@@ -1,0 +1,59 @@
+<div class="example-container">
+    <h2>Edit Form</h2>
+    <form [formGroup]="registrationForm">
+               
+         <div class="form-group">
+            <mat-form-field>
+                <input   matInput placeholder="id" value="{{userData.id}}" disabled>
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <mat-form-field>
+                <input  matInput placeholder="Name" value="{{userData.name}}" disabled>
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <mat-form-field>
+                <input   matInput placeholder="Director" value="{{userData.director}}">
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <mat-form-field>
+                <input    matInput placeholder="Industry" value="{{userData.industry}}">
+            </mat-form-field>
+        </div>
+        <div formArrayName="details"  *ngFor="let item of registrationForm.get('details').controls; let i=index; ">
+
+                <div [formGroupName]="i">
+                        <!-- <div formArrayName="details"  *ngFor="let item of registrationForm.get('details').controls; let i=index; "> -->
+
+                                <!-- <div [formGroupName]="i"> -->
+                                        <div class="form-group">
+                                                <mat-form-field>
+                                                    <input  formControlName="hero"  matInput placeholder="Hero" value={{userData.details[0].hero}}>
+                                                </mat-form-field>
+                                    
+                                            </div>
+                                            <div class="form-group">
+                                                <mat-form-field>
+                                                    <input  formControlName="heroine"  matInput placeholder="Heroine" value={{userData.details[0].heroine}}>
+                                                </mat-form-field>
+                                    
+                                            </div>
+                                            <div class="form-group">
+                                                <mat-form-field>
+                                                    <input  formControlName="budget"  matInput placeholder="Budget" value={{userData.details[0].budget}}>
+                                                </mat-form-field>
+                                    </div>
+                </div>
+               
+            </div>
+                </form>
+
+        <button mat-raised-button color="primary" (click)="editData(registrationForm.value)">Save</button>
+
+
+</div>
+
+
+

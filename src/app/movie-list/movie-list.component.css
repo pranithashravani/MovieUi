@@ -1,0 +1,8 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+table {
+  width: 100%;
+}
+.example-spacer{
+padding-left: 800px;
+  flex: 1 1 auto;
+}

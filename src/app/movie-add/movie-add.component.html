@@ -1,0 +1,52 @@
+<div class="example-container">
+    <h2>Registration Form</h2>
+    <form [formGroup]="registrationForm">
+        <div class="form-group">
+            <mat-form-field>
+                <input  formControlName="id" matInput placeholder="Id">
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <mat-form-field>
+                <input  formControlName="name" matInput placeholder="Name">
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <mat-form-field>
+                <input  formControlName="director" matInput placeholder="Director">
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <mat-form-field>
+                <input  formControlName="industry"  matInput placeholder="Industry">
+            </mat-form-field>
+        </div>
+        <div formArrayName="details"  *ngFor="let item of registrationForm.get('details').controls; let i=index; ">
+
+      <div [formGroupName]="i">
+        <div class="form-group">
+            <mat-form-field>
+                <input  formControlName="hero"  matInput placeholder="Hero">
+            </mat-form-field>
+
+        </div>
+        <div class="form-group">
+            <mat-form-field>
+                <input  formControlName="heroine"  matInput placeholder="Heroine">
+            </mat-form-field>
+
+        </div>
+        <div class="form-group">
+            <mat-form-field>
+                <input  formControlName="budget"  matInput placeholder="Budget">
+            </mat-form-field>
+</div>
+</div>
+         
+        </div>
+        <button mat-raised-button color="primary" (click)="addData(registrationForm.value)">Submit</button>
+       </form>
+
+</div>
+
+
